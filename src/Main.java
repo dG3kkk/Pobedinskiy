@@ -2,14 +2,21 @@ import java.util.Scanner;
 
 public class Main {
 
+    private static int readInt(Scanner scanner, String prompt) {
+        System.out.print(prompt);
+        while (!scanner.hasNextInt()) {
+            System.out.println("Ошибка! Введите целое число.");
+            scanner.next();
+        }
+        return scanner.nextInt();
+    }
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Задание 1: Целые числа");
-        System.out.print("Введите число a: ");
-        int a = scanner.nextInt();
-        System.out.print("Введите число b: ");
-        int b = scanner.nextInt();
+        int a = readInt(scanner, "Введите число a: ");
+        int b = readInt(scanner, "Введите число b: ");
 
         if (a > b) {
             System.out.println("a > b");
